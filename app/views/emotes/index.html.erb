@@ -14,8 +14,13 @@
   <tbody>
     <% @emotes.each do |emote| %>
       <tr>
-        <td><%= emote.command %></td>
+        <td><b><%= emote.command %><b></td>
         <td><%= emote.url %></td>
+        <td>
+        </td>
+        <td>
+          <img src="<%= emote.url %>" width="480" height="193" frameBorder="0" class="giphy-embed" allowFullScreen></img>
+        </td>
         <td><%= link_to 'Show', emote %></td>
         <td><%= link_to 'Edit', edit_emote_path(emote) %></td>
         <td><%= link_to 'Destroy', emote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
