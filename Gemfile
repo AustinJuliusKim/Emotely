@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# front end framework
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
