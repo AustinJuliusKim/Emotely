@@ -21,26 +21,34 @@
 
   <br/ >
 
-  <section class="ui three column stackable grid container">
-    <% @emotes.in_groups_of(3) do |group| %>
+  <section class="ui four column stackable grid container">
+    <% @emotes.in_groups_of(4) do |group| %>
       <% group.each do |emote| %>
-        <article class="column">
-          <div class="ui segment">
-            <%= emote.command %>
-            <%= emote.url %>
-            <img src="<%= emote.url %>" width="480" height="193" frameBorder="0" class="giphy-embed" allowFullScreen></img>
-            <div class="ui big input">
-              <input type="text" placeholder="<%= emote.command %>">
+        <% unless emote.nil? %>
+          <article class="column">
+            <div class="ui segment">
+              <%= emote.command %>
+              <%= emote.url %>
+              <img src="<%= emote.url %>" width="480" height="193" frameBorder="0" class="giphy-embed" allowFullScreen></img>
+              <div class="ui big input">
+                <input type="text" placeholder="<%= emote.command %>">
+              </div>
+              <br />
+              <%= link_to 'Show', emote %>
+              <%= link_to 'Edit', edit_emote_path(emote) %>
+              <%= link_to 'Destroy', emote, method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
-            <br />
-            <%= link_to 'Show', emote %>
-            <%= link_to 'Edit', edit_emote_path(emote) %>
-            <%= link_to 'Destroy', emote, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </div>
-        </article>
+          </article>
+        <% end %>
+
+        <br />
+
       <% end %>
     <% end %>
-    <%= link_to 'New Emote', new_emote_path %>
+    <div class="ui container">
+      <%= link_to 'New Emote', new_emote_path %>
+    </div>
+
   </section>
 
   <br>
