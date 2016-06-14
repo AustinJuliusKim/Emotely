@@ -1,3 +1,40 @@
 // Place all the styles related to the Emotes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.emote-list {
+  img {
+    width: 100%;
+  }
+  .ui.segment {
+    text-align: center;
+  }
+  .fluid.ui.container {
+    height: 400px;
+    background-color: #5ECA74;
+  }
+  .ui.big.input {
+    input {
+      // border-color: #ffffff;
+      border-radius: 50px;
+      text-align: center;
+    }
+  }
+  .hrz-container {
+    text-align: center;
+    width: 100%;
+    &.center {
+      padding: 160px 0;
+    }
+    .nav-link-anchor {
+      color: #ffffff;
+      padding: 5px 10px;
+      font-size: 20px;
+      &:hover,&:active {
+        background-color: #5ECA74;
+        text-decoration: underline;
+      }
+    }
+  }
+
+}

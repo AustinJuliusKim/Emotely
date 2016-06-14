@@ -1,34 +1,50 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Emotes</h1>
+<div class="emote-list">
+  <section class="ui fluid container">
+    <div class="hrz-container center">
+      <div class="ui big icon input">
+        <input type="text" placeholder="Invite Friends...">
+        <i class="search icon"></i>
+      </div>
+    </div>
+    <div class="hrz-container">
+      <div class="nav-links">
+        <a class="nav-link-anchor" href="#">HOME</a>
+        <a class="nav-link-anchor" href="#">PRESET</a>
+        <a class="nav-link-anchor" href="#">DEMO</a>
+      </div>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Command</th>
-      <th>Url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  </section>
 
-  <tbody>
-    <% @emotes.each do |emote| %>
-      <tr>
-        <td><b><%= emote.command %><b></td>
-        <td><%= emote.url %></td>
-        <td>
-        </td>
-        <td>
-          <img src="<%= emote.url %>" width="480" height="193" frameBorder="0" class="giphy-embed" allowFullScreen></img>
-        </td>
-        <td><%= link_to 'Show', emote %></td>
-        <td><%= link_to 'Edit', edit_emote_path(emote) %></td>
-        <td><%= link_to 'Destroy', emote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <br/ >
+
+  <section class="ui three column stackable grid container">
+    <% @emotes.in_groups_of(3) do |group| %>
+      <% group.each do |emote| %>
+        <article class="column">
+          <div class="ui segment">
+            <%= emote.command %>
+            <%= emote.url %>
+            <img src="<%= emote.url %>" width="480" height="193" frameBorder="0" class="giphy-embed" allowFullScreen></img>
+            <div class="ui big input">
+              <input type="text" placeholder="<%= emote.command %>">
+            </div>
+            <br />
+            <%= link_to 'Show', emote %>
+            <%= link_to 'Edit', edit_emote_path(emote) %>
+            <%= link_to 'Destroy', emote, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </article>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+    <%= link_to 'New Emote', new_emote_path %>
+  </section>
 
-<br>
+  <br>
 
-<%= link_to 'New Emote', new_emote_path %>
+
+
+</div>
