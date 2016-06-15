@@ -3,7 +3,7 @@
   	<%= "You are currently logged in as: #{current_user.name}"%>
   	<%= link_to "Log out", logout_path, method: :delete %>
   <% else %>
-  	<%= link_to "Log in", login_path %>
-  	<%= link_to "Sign up", signup_path %>
+  	<%= link_to "Log in", login_path, {:id => 'log-in-lnk'} %>
+  	<%= link_to "Sign up", signup_path, {:id => 'sign-up-lnk'}  %>
   <% end %>
 </nav>

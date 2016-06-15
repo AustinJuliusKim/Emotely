@@ -51,6 +51,37 @@
 
   </section>
 
+  <article class="ui basic modal hidden" id="log-in-modal">
+    <i class="close icon"></i>
+    <div class="header centered">
+      Log in!
+    </div>
+    <div class="description centered">
+      <p>Welcome to Emotely.</p>
+    </div>
+    <div class="actions">
+      <%= form_for :login do |f| %>
+        <div class="ui fluid big input">
+          <%#= f.label :email, {:class => ''} %>
+          <%= f.text_field :email, {placeholder: 'Email'} %>
+        </div>
+        <br />
+        <div class="ui fluid big input">
+          <%#= f.label :password, {:class => ''} %>
+          <%= f.password_field :password, { placeholder: 'Password'} %>
+        </div>
+        <br />
+        <div class="one fluid ui inverted buttons">
+          <%= f.submit "Log in!", {:class => 'ui green basic inverted button'} %>
+        </div>
+      <% end %>
+    </div>
+  </article>
+
+  <article class="">
+
+  </article>
+
   <br>
 
 
