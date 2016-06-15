@@ -5,6 +5,7 @@ class EmotesController < ApplicationController
   # GET /emotes.json
   def index
     @emotes = Emote.all
+    @user = User.new
   end
 
   # GET /emotes/1

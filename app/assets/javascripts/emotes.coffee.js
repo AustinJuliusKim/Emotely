@@ -10,14 +10,16 @@
 
 
 $(function(){
-  // console.log("Ready!");
-  var login = $('#log-in-lnk'), modal = $('#log-in-modal');
-  console.log(login);
-  console.log(modal);
-  login.click(function(e){
-    console.log("clicked");
-    $(modal).modal('show');
-    e.preventDefault();
+  var login = $('#log-in-lnk'), loginModal = $('#log-in-modal'), signup = $('#sign-up-lnk'), signupModal = $('#sign-up-modal');
 
+  login.click(function(e){
+    $(loginModal).modal('show');
+    e.preventDefault();
   });
-})();
+
+  signup.click(function(e){
+    $(signupModal).modal('show');
+    e.preventDefault();
+  });
+
+})
