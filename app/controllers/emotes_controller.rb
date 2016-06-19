@@ -1,10 +1,20 @@
 class EmotesController < ApplicationController
   before_action :set_emote, only: [:show, :edit, :update, :destroy]
-
+  require 'net/http'
+  require 'json'
   # GET /emotes
   # GET /emotes.json
   def index
     @emotes = Emote.all
+    # @students = HTTParty.get("https://api.github.com/teams/1365559/members?access_token=ac26a9be4540039b4692beea74209de0a520d2bd")
+    # @gifs = HTTParty.get("https://api.giphy.com/v1/gifs/search?q=why&limit=1&api_key=dc6zaTOxFJmzC")
+    url = "https://api.giphy.com/v1/gifs/search?q=why&limit=1&api_key=dc6zaTOxFJmzC"
+    @resp = HTTParty.get(url)
+    buffer = @resp.body
+    result = JSON.parse(buffer)
+    @gifs = result
+    @gifs = @gifs["data"][0]["images"]["fixed_height"]["url"]
+
   end
 
   # GET /emotes/1
